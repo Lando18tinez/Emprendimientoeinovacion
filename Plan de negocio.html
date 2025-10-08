@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DonApp – Tecnología con propósito</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e3f9e5 0%, #e3f2fd 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+    header {
+      background: linear-gradient(90deg, #2196F3 60%, #4CAF50 100%);
+      color: white;
+      padding: 40px 20px 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(33,150,243,0.15);
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 2px;
+      text-shadow: 1px 2px 8px #2196F3;
+    }
+    header p {
+      margin: 10px 0 0 0;
+      font-size: 1.3em;
+      font-weight: 500;
+      text-shadow: 1px 1px 6px #4CAF50;
+    }
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section {
+      background: linear-gradient(100deg, #fff 80%, #e3f9e5 100%);
+      margin-bottom: 28px;
+      padding: 28px 24px;
+      border-left: 8px solid #4CAF50;
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(33,150,243,0.08);
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .section:hover {
+      box-shadow: 0 8px 32px rgba(33,150,243,0.18);
+      border-left: 8px solid #2196F3;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #2196F3;
+      font-size: 1.6em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Iconos por sección usando emojis */
+    .section:nth-child(1) h2::before { content: "💡"; }
+    .section:nth-child(2) h2::before { content: "🎯"; }
+    .section:nth-child(3) h2::before { content: "🖥️"; }
+    .section:nth-child(4) h2::before { content: "📊"; }
+    .section:nth-child(5) h2::before { content: "🏠"; }
+    .section:nth-child(6) h2::before { content: "🔢"; }
+    .section:nth-child(7) h2::before { content: "📢"; }
+    .section:nth-child(8) h2::before { content: "🌱"; }
+    .section:nth-child(9) h2::before { content: "🚀"; }
+
+    ul, ol {
+      margin-left: 20px;
+    }
+    ul li, ol li {
+      margin-bottom: 7px;
+      padding-left: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      background: #f8f8f8;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(76,175,80,0.07);
+    }
+    table, th, td {
+      border: 1px solid #9E9E9E;
+    }
+    th {
+      background: linear-gradient(90deg, #4CAF50 70%, #2196F3 100%);
+      color: white;
+      font-weight: 600;
+      padding: 10px;
+      letter-spacing: 1px;
+    }
+    td {
+      padding: 10px;
+      background: #fff;
+    }
+    .fortalezas { background: #d4edda; }
+    .oportunidades { background: #cce5ff; }
+    .debilidades { background: #fff3cd; }
+    .amenazas { background: #f8d7da; }
+    tr:nth-child(even) td {
+      background: #e3f2fd;
+    }
+    tr:hover td {
+      background: #c8e6c9;
+      transition: background 0.2s;
+    }
+    code {
+      background: #e3f2fd;
+      color: #2196F3;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    footer {
+      background: linear-gradient(90deg, #2196F3 60%, #4CAF50 100%);
+      color: white;
+      text-align: center;
+      padding: 20px 20px;
+      margin-top: 50px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      font-size: 1.1em;
+      box-shadow: 0 -4px 16px rgba(33,150,243,0.12);
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .container {
+        padding: 0 6px;
+      }
+      .section {
+        padding: 18px 8px;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      .section h2 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="DonApp_logo.png" alt="Logo DonApp" style="height: 150px; margin-bottom:10px; background:none; border-radius:0; box-shadow:none;">
+    <p>Transforma tu tecnología. Transforma tu comunidad.</p>
+    <p>Emprendimiento e innovación II</p>
+    <p>Luisa Mendez,
+      Johan Martinez,
+      Cesar Bolivar,
+      Nicolas Rincon
+    </p>
+    <p>Univesidad de Cundinamarca</p>
+    <p>Extensión Chia</p>
+    <p>Facultad de ingenieria</p>
+    <p>ingenieria de Sistemas</p>
+    <p>2025</p>
+  </header>
+
+  <div class="container my-4">
+    <section class="section" style="background: linear-gradient(120deg, #e3f2fd 70%, #c8e6c9 100%); border-left: 8px solid #2196F3;">
+      <h2 style="color:#4CAF50;">🧠 Evaluación de la idea de negocio – DonApp</h2>
+      <p><strong>¿QUÉ bienes o servicios venderá su negocio?</strong><br>
+      DonApp no vende directamente productos, sino que ofrece un servicio social y tecnológico: la recolección, clasificación y trazabilidad de dispositivos electrónicos donados. A través de una plataforma digital, se gestiona el ciclo de vida de estos equipos, dividiéndolos en funcionales, semi-funcionales y no funcionales, para su reutilización, reparación o reciclaje.</p>
+      <p><strong>¿A QUIÉN va a vender su negocio?</strong></p>
+      <ul>
+        <li>Ciudadanos de Chía con tecnología en desuso</li>
+        <li>Instituciones educativas que pueden recibir equipos reacondicionados</li>
+        <li>Empresas locales interesadas en responsabilidad social</li>
+        <li>Estudiantes y técnicos que pueden usar componentes para prácticas</li>
+      </ul>
+      <p><strong>¿CÓMO va a vender su negocio sus productos y servicios?</strong></p>
+      <ul>
+        <li>A través de una app móvil y web que permite registrar donaciones, visualizar el estado de los dispositivos y conectar con beneficiarios</li>
+        <li>Mediante alianzas con universidades, colegios y empresas</li>
+        <li>Usando campañas de concientización en medios locales y redes sociales</li>
+      </ul>
+      <p><strong>¿QUÉ necesidades de los clientes va a satisfacer su negocio?</strong></p>
+      <ul>
+        <li>Deshacerse responsablemente de tecnología obsoleta</li>
+        <li>Acceder a equipos reacondicionados para educación o emprendimiento</li>
+        <li>Participar en iniciativas sostenibles y sociales</li>
+        <li>Contribuir a la economía circular tecnológica</li>
+      </ul>
+      <p><strong>¿QUÉ impacto tiene su negocio en la comunidad y el medio ambiente?</strong></p>
+      <ul>
+        <li>Reducción de residuos electrónicos</li>
+        <li>Fomento de la educación práctica y el acceso tecnológico</li>
+        <li>Conciencia ciudadana sobre sostenibilidad digital</li>
+        <li>Reactivación de equipos que de otro modo serían desechados</li>
+      </ul>
+</body>
+</html>
+
+<footer>
+    <p>&copy; 2025 DonApp. Todos los derechos reservados.</p>
+</footer>
