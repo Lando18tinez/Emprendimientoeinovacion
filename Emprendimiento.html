@@ -7,27 +7,28 @@
   <!-- Bootstrap CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    :root{
+      --blue:#2196F3;
+      --green:#4CAF50;
+      --gray:#9E9E9E;
+      --bg-start:#e3f9e5;
+      --bg-end:#e3f2fd;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #e3f9e5 0%, #e3f2fd 100%);
+      background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
       color: #333;
       line-height: 1.6;
     }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      background: #fff;
-    }
+    h1 { text-align: center; color: #333; }
+    h2 { color: var(--blue); font-size: 1.6em; margin-top: 0; display:flex; align-items:center; gap:10px; }
+    h3 { color: #78b0de; margin-top: 20px; line-height: 1; font-size: 1.3em; }
+
     header {
-      background: linear-gradient(90deg, #2196F3 60%, #4CAF50 100%);
+      background: linear-gradient(90deg, var(--blue) 60%, var(--green) 100%);
       color: white;
       padding: 40px 20px 30px 20px;
       text-align: center;
@@ -36,63 +37,45 @@
       border-bottom-right-radius: 40px;
       position: relative;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 2px;
-      text-shadow: 1px 2px 8px #2196F3;
-    }
-    header p {
-      margin: 10px 0 0 0;
-      font-size: 1.3em;
-      font-weight: 500;
-      text-shadow: 1px 1px 6px #4CAF50;
-    }
+    header h1 { margin: 0; font-size: 3em; letter-spacing: 2px; text-shadow: 1px 2px 8px var(--blue); }
+    header p { margin: 8px 0 0 0; font-size: 1.05em; font-weight: 500; text-shadow: 1px 1px 6px var(--green); }
+
     .container {
       max-width: 950px;
       margin: 30px auto;
       padding: 0 20px;
     }
+
     .section {
-      background: linear-gradient(100deg, #fff 80%, #e3f9e5 100%);
+      background: linear-gradient(100deg, #fff 80%, var(--bg-start) 100%);
       margin-bottom: 28px;
       padding: 28px 24px;
-      border-left: 8px solid #4CAF50;
+      border-left: 8px solid var(--green);
       border-radius: 18px;
       box-shadow: 0 4px 16px rgba(33,150,243,0.08);
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s, border-left 0.2s;
       position: relative;
     }
     .section:hover {
       box-shadow: 0 8px 32px rgba(33,150,243,0.18);
-      border-left: 8px solid #2196F3;
+      border-left: 8px solid var(--blue);
     }
-    .section h2 {
-      margin-top: 0;
-      color: #2196F3;
-      font-size: 1.6em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    /* Iconos por sección usando emojis */
-    .section:nth-child(1) h2::before { content: "💡"; }
-    .section:nth-child(2) h2::before { content: "🎯"; }
-    .section:nth-child(3) h2::before { content: "🖥️"; }
-    .section:nth-child(4) h2::before { content: "📊"; }
-    .section:nth-child(5) h2::before { content: "🏠"; }
-    .section:nth-child(6) h2::before { content: "🔢"; }
-    .section:nth-child(7) h2::before { content: "📢"; }
-    .section:nth-child(8) h2::before { content: "🌱"; }
-    .section:nth-child(9) h2::before { content: "🚀"; }
 
-    ul, ol {
-      margin-left: 20px;
-    }
-    ul li, ol li {
-      margin-bottom: 7px;
-      padding-left: 4px;
-    }
+    /* Iconos por sección usando emojis (basado en orden visual) */
+    .section:nth-of-type(1) h2::before { content: "💡"; margin-right:6px; }
+    .section:nth-of-type(2) h2::before { content: "🎯"; margin-right:6px; }
+    .section:nth-of-type(3) h2::before { content: "🖥️"; margin-right:6px; }
+    .section:nth-of-type(4) h2::before { content: "📊"; margin-right:6px; }
+    .section:nth-of-type(5) h2::before { content: "🏠"; margin-right:6px; }
+    .section:nth-of-type(6) h2::before { content: "🔢"; margin-right:6px; }
+    .section:nth-of-type(7) h2::before { content: "📢"; margin-right:6px; }
+    .section:nth-of-type(8) h2::before { content: "🌱"; margin-right:6px; }
+    .section:nth-of-type(9) h2::before { content: "🚀"; margin-right:6px; }
+
+    p { margin-bottom: 14px; font-size: 1.1em; }
+    ul, ol { margin-left: 20px; }
+    ul li, ol li { margin-bottom: 7px; padding-left: 4px; }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -102,40 +85,32 @@
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(76,175,80,0.07);
     }
-    table, th, td {
-      border: 1px solid #9E9E9E;
-    }
+    table, th, td { border: 1px solid var(--gray); }
     th {
-      background: linear-gradient(90deg, #4CAF50 70%, #2196F3 100%);
+      background: linear-gradient(90deg, var(--green) 70%, var(--blue) 100%);
       color: white;
       font-weight: 600;
       padding: 10px;
       letter-spacing: 1px;
     }
-    td {
-      padding: 10px;
-      background: #fff;
-    }
+    td { padding: 10px; background: #fff; }
     .fortalezas { background: #d4edda; }
     .oportunidades { background: #cce5ff; }
     .debilidades { background: #fff3cd; }
     .amenazas { background: #f8d7da; }
-    tr:nth-child(even) td {
-      background: #e3f2fd;
-    }
-    tr:hover td {
-      background: #c8e6c9;
-      transition: background 0.2s;
-    }
+    tr:nth-child(even) td { background: #e3f2fd; }
+    tr:hover td { background: #c8e6c9; transition: background 0.2s; }
+
     code {
       background: #e3f2fd;
-      color: #2196F3;
+      color: var(--blue);
       padding: 2px 6px;
       border-radius: 6px;
       font-size: 1em;
     }
+
     footer {
-      background: linear-gradient(90deg, #2196F3 60%, #4CAF50 100%);
+      background: linear-gradient(90deg, var(--blue) 60%, var(--green) 100%);
       color: white;
       text-align: center;
       padding: 20px 20px;
@@ -145,39 +120,26 @@
       font-size: 1.1em;
       box-shadow: 0 -4px 16px rgba(33,150,243,0.12);
     }
+
     /* Responsive */
     @media (max-width: 700px) {
-      .container {
-        padding: 0 6px;
-      }
-      .section {
-        padding: 18px 8px;
-      }
-      header h1 {
-        font-size: 2em;
-      }
-      .section h2 {
-        font-size: 1.2em;
-      }
+      .container { padding: 0 10px; }
+      .section { padding: 18px 12px; }
+      header h1 { font-size: 2em; }
+      .section h2 { font-size: 1.2em; }
+      svg[role="img"] { height: auto; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="DonApp_logo.png" alt="Logo DonApp" style="height: 150px; margin-bottom:10px; background:none; border-radius:0; box-shadow:none;">
+    <img src="DonApp_logo.png" alt="Logo DonApp" style="height:150px; margin-bottom:10px;">
+    <h1>DonApp – Tecnología con propósito</h1>
     <p>Transforma tu tecnología. Transforma tu comunidad.</p>
     <p>Emprendimiento e innovación II</p>
-    <p>Luisa Mendez,
-      Johan Martinez,
-      Cesar Bolivar,
-      Nicolas Rincon
-    </p>
-    <p>Univesidad de Cundinamarca</p>
-    <p>Extensión Chia</p>
-    <p>Facultad de ingenieria</p>
-    <p>ingenieria de Sistemas</p>
-    <p>2025</p>
+    <p>Luisa Méndez · Johan Martínez · César Bolívar · Nicolás Rincón</p>
+    <p>Universidad de Cundinamarca · Extensión Chía · Facultad de Ingeniería · Ingeniería de Sistemas · 2025</p>
   </header>
 
   <div class="container my-4">
@@ -319,10 +281,11 @@
       </ul>
     </section>
 
-    <section class="section" style="background: linear-gradient(120deg, #e3f2fd 70%, #c8e6c9 100%); border-left: 8px solid #2196F3;">
-      <h2 style="color:#4CAF50;">🧠 9. luación de la idea de negocio – DonApp</h2>
+    <section class="section">
+      <h2>9. Evaluación de la idea de negocio – DonApp</h2>
       <p><strong>¿QUÉ bienes o servicios venderá su negocio?</strong><br>
       DonApp no vende directamente productos, sino que ofrece un servicio social y tecnológico: la recolección, clasificación y trazabilidad de dispositivos electrónicos donados. A través de una plataforma digital, se gestiona el ciclo de vida de estos equipos, dividiéndolos en funcionales, semi-funcionales y no funcionales, para su reutilización, reparación o reciclaje.</p>
+
       <p><strong>¿A QUIÉN va a vender su negocio?</strong></p>
       <ul>
         <li>Ciudadanos de Chía con tecnología en desuso</li>
@@ -330,12 +293,14 @@
         <li>Empresas locales interesadas en responsabilidad social</li>
         <li>Estudiantes y técnicos que pueden usar componentes para prácticas</li>
       </ul>
+
       <p><strong>¿CÓMO va a vender su negocio sus productos y servicios?</strong></p>
       <ul>
         <li>A través de una app móvil y web que permite registrar donaciones, visualizar el estado de los dispositivos y conectar con beneficiarios</li>
         <li>Mediante alianzas con universidades, colegios y empresas</li>
         <li>Usando campañas de concientización en medios locales y redes sociales</li>
       </ul>
+
       <p><strong>¿QUÉ necesidades de los clientes va a satisfacer su negocio?</strong></p>
       <ul>
         <li>Deshacerse responsablemente de tecnología obsoleta</li>
@@ -343,6 +308,7 @@
         <li>Participar en iniciativas sostenibles y sociales</li>
         <li>Contribuir a la economía circular tecnológica</li>
       </ul>
+
       <p><strong>¿QUÉ impacto tiene su negocio en la comunidad y el medio ambiente?</strong></p>
       <ul>
         <li>Reducción de residuos electrónicos</li>
@@ -350,10 +316,11 @@
         <li>Conciencia ciudadana sobre sostenibilidad digital</li>
         <li>Reactivación de equipos que de otro modo serían desechados</li>
       </ul>
-      <hr style="border: none; border-top: 2px dashed #4CAF50; margin: 24px 0;">
-      <h3 style="color:#2196F3; margin-top:0;">📊 10. ¿Cuándo y para qué hacer investigación de mercado?</h3>
+
+      <hr style="border: none; border-top: 2px dashed var(--green); margin: 24px 0;">
+      <h2 style="color:var(--blue); margin-top:0;">10. ¿Cuándo y para qué hacer investigación de mercado?</h2>
       <ul>
-        <li>Desea incursionar en nuevos mercados: como hogares, empresas e instituciones educativas de Chía.</li>
+        <li>Desea incursionar en nuevos mercados: hogares, empresas e instituciones educativas de Chía.</li>
         <li>No hay claridad total sobre los clientes: se necesita entender mejor sus hábitos tecnológicos y disposición a donar.</li>
         <li>Falta conocimiento sobre las características del mercado local: ¿Qué tipo de dispositivos tienen? ¿Qué canales prefieren?</li>
         <li>Hay muchas preguntas sobre el comportamiento ciudadano: ¿Qué los motiva a donar? ¿Qué barreras existen?</li>
@@ -362,7 +329,7 @@
     </section>
 
     <section class="section">
-      <h1>11. Tabla DOFA - DonApp</h1>
+      <h2>11. Tabla DOFA - DonApp</h2>
       <table>
         <tr>
           <th>Fortalezas</th>
@@ -423,9 +390,11 @@
         <li>Sesiones de grupo focalizadas.</li>
         <li>Un estudio mixto (cuantitativo y cualitativo) sobre aceptación y usabilidad.</li>
       </ul>
+
       <h2>13. Estudio de mercado</h2>
       <p>El estudio de mercado busca identificar clientes, competidores y oportunidades dentro del contexto local de Chía, considerando tanto el comportamiento ambiental como la disposición tecnológica de los consumidores.</p>
-      <tr>
+
+      <div>
         <h3>13.1 Marco de referencia</h3>
         <ul>
           <li><strong>Competencia:</strong> Fundaciones, empresas y gestores ambientales que recolectan residuos electrónicos.</li>
@@ -433,22 +402,27 @@
           <li><strong>Recurso que reemplaza:</strong> Canales informales de recolección o compraventa de segunda mano.</li>
           <li><strong>CIIU:</strong> Actividades de recolección y disposición de desechos; clasificación de materiales recuperables (3811, 3821, 3830).</li>
         </ul>
+
         <h3>13.2 Competencia directa e indirecta</h3>
         <ul>
           <li><strong>Competencia directa:</strong> Gestores certificados y fundaciones ambientales (Lito, Recicla Bogotá, Fundación Red Verde).</li>
           <li><strong>Competencia indirecta:</strong> Plataformas de segunda mano (OLX, Facebook Marketplace) y chatarrerías locales.</li>
         </ul>
+
         <h3>13.3 Tamaño de mercado y tendencias</h3>
         <p>El mercado de residuos electrónicos en Cundinamarca crece constantemente. A medida que aumenta la digitalización, también lo hace la cantidad de aparatos obsoletos. Las tendencias muestran una creciente conciencia ambiental y preferencia por modelos sostenibles.</p>
+
         <h3>13.4 Ventaja competitiva</h3>
         <p>DonApp reemplaza intermediarios dedicados a la venta de equipos usados, ofreciendo un sistema transparente y educativo de donación y reciclaje con propósito social.</p>
-      </tr>
+      </div>
+
       <h2>14. Estrategias de marketing</h2>
       <ul>
         <li><strong>Marketing masivo:</strong> Campañas educativas y redes sociales locales para sensibilizar sobre donación tecnológica.</li>
         <li><strong>Marketing de seguimiento:</strong> Comunicación personalizada con donantes mediante correos y reportes de impacto.</li>
         <li><strong>Marketing de nicho:</strong> Enfoque en instituciones educativas y comunidades tecnológicas sostenibles.</li>
       </ul>
+
       <h2>15. Proceso de segmentación</h2>
       <table>
         <tr>
@@ -472,6 +446,7 @@
           <td>Hogares y comunidades con prácticas sostenibles e interés en la reutilización tecnológica.</td>
         </tr>
       </table>
+
       <h2>16. Marketing Mix (4P)</h2>
       <ul>
         <li><strong>Producto:</strong> Plataforma digital para la donación y gestión de residuos electrónicos.</li>
@@ -481,10 +456,229 @@
       </ul>
     </section>
 
-  </div>
-</body>
-</html>
+    <section class="section">
+      <h2>17. Políticas</h2>
+      <p class="muted" style="color:#6b7f93;">Políticas institucionales que rigen las operaciones y la interacción con donantes y beneficiarios.</p>
+      <ul class="policies" aria-labelledby="politicas"></ul>
+        <li><strong>Política de Sostenibilidad:</strong> Promover la reutilización y reciclaje responsable de dispositivos electrónicos para minimizar el impacto ambiental y fomentar la economía circular.</li>
+        <li><strong>Política de Transparencia:</strong> La trazabilidad de donaciones, reacondicionamientos y entregas se mantendrá pública y verificable en la plataforma.</li>
+        <li><strong>Política de Educación y Conciencia:</strong> Realizar actividades educativas (talleres, materiales y campañas) para sensibilizar sobre gestión responsable de residuos electrónicos.</li>
+        <li><strong>Política de Ética y Responsabilidad Social:</strong> Priorizar el impacto social, la equidad y el respeto a las comunidades beneficiarias. No se buscará lucro sobre las donaciones.</li>
+        <li><strong>Política de Protección de Datos:</strong> Tratar la información personal de donantes y beneficiarios con confidencialidad, cumpliendo la normatividad vigente (Ley 1581/2012 y demás aplicables).</li>
+        <li><strong>Política de Seguridad Técnica:</strong> Garantizar medidas básicas de seguridad en la plataforma para proteger la información y evitar fraudes o usos indebidos.</li>
+        <li><strong>Política de Mejora Continua:</strong> Revisar periódicamente procesos, métricas e indicadores para optimizar la operación y el impacto ambiental y social.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="organigrama">
+      <h2>18. Organigrama</h2>
+      <p class="muted" style="color:#6b7f93;">Estructura organizativa (4 personas): roles directivos y responsabilidades generales.</p>
+
+      <div class="org-wrap" role="img" aria-label="Organigrama de DonApp" style="margin-top:12px;">
+        <div class="org-svg" style="margin-bottom:12px;">
+          <!-- SVG organigrama simple -->
+          <svg width="100%" height="300" viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="svgTitle svgDesc">
+            <title id="svgTitle">Organigrama DonApp</title>
+            <desc id="svgDesc">Diagrama con el Director General arriba y tres directores en la segunda fila: Técnico, Marketing y Operaciones.</desc>
+
+            <defs>
+              <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b3a66" flood-opacity="0.08"/>
+              </filter>
+              <linearGradient id="grad1" x1="0" x2="1">
+                <stop offset="0" stop-color="#4CAF50"/>
+                <stop offset="1" stop-color="#2196F3"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Top box: CEO -->
+            <rect x="240" y="18" rx="12" ry="12" width="240" height="70" fill="url(#grad1)" filter="url(#shadow)"/>
+            <text x="360" y="42" text-anchor="middle" font-family="Inter, Arial" font-size="16" fill="#fff" font-weight="700">Nicolás Rincón</text>
+            <text x="360" y="62" text-anchor="middle" font-family="Inter, Arial" font-size="12" fill="#eaf6ff">Director General (CEO)</text>
+
+            <!-- Connectors -->
+            <line x1="360" y1="88" x2="120" y2="140" stroke="#dfeaf5" stroke-width="2"/>
+            <line x1="360" y1="88" x2="360" y2="140" stroke="#dfeaf5" stroke-width="2"/>
+            <line x1="360" y1="88" x2="600" y2="140" stroke="#dfeaf5" stroke-width="2"/>
+
+            <!-- Left box: Director Técnico -->
+            <rect x="60" y="140" rx="10" ry="10" width="180" height="90" fill="#ffffff" stroke="#cfe8ff" stroke-width="1"/>
+            <text x="150" y="170" text-anchor="middle" font-family="Inter, Arial" font-size="14" fill="#0b3a66" font-weight="700">César Bolívar</text>
+            <text x="150" y="190" text-anchor="middle" font-family="Inter, Arial" font-size="12" fill="#2b6ea6">Director Técnico</text>
+            <text x="150" y="208" text-anchor="middle" font-family="Inter, Arial" font-size="11" fill="#6b7f93">Plataforma y seguridad</text>
+
+            <!-- Middle box: Marketing -->
+            <rect x="270" y="140" rx="10" ry="10" width="180" height="90" fill="#ffffff" stroke="#cfe8ff" stroke-width="1"/>
+            <text x="360" y="170" text-anchor="middle" font-family="Inter, Arial" font-size="14" fill="#0b3a66" font-weight="700">Luisa Méndez</text>
+            <text x="360" y="190" text-anchor="middle" font-family="Inter, Arial" font-size="12" fill="#2b6ea6">Directora de Marketing</text>
+            <text x="360" y="208" text-anchor="middle" font-family="Inter, Arial" font-size="11" fill="#6b7f93">Comunicación y eventos</text>
+
+            <!-- Right box: Operativo -->
+            <rect x="480" y="140" rx="10" ry="10" width="180" height="90" fill="#ffffff" stroke="#cfe8ff" stroke-width="1"/>
+            <text x="570" y="170" text-anchor="middle" font-family="Inter, Arial" font-size="14" fill="#0b3a66" font-weight="700">Johan Martínez</text>
+            <text x="570" y="190" text-anchor="middle" font-family="Inter, Arial" font-size="12" fill="#2b6ea6">Director Operativo</text>
+            <text x="570" y="208" text-anchor="middle" font-family="Inter, Arial" font-size="11" fill="#6b7f93">Logística y recolección</text>
+          </svg>
+        </div>
+
+        <div class="org-details" aria-hidden="false">
+          <div class="role">
+            <h3 style="margin:6px 0 4px;">Nicolás Rincón — Director General (CEO)</h3>
+            <p style="margin:0 0 8px;">Responsable de la visión estratégica, representación institucional y toma de decisiones clave.</p>
+          </div>
+
+          <div class="role">
+            <h3 style="margin:6px 0 4px;">César Bolívar — Director Técnico</h3>
+            <p style="margin:0 0 8px;">Responsable de la plataforma, seguridad y procesos técnicos de clasificación y reacondicionamiento.</p>
+          </div>
+
+          <div class="role">
+            <h3 style="margin:6px 0 4px;">Luisa Méndez — Directora de Marketing</h3>
+            <p style="margin:0 0 8px;">Responsable de la comunicación, campañas y educación comunitaria.</p>
+          </div>
+
+          <div class="role">
+            <h3 style="margin:6px 0 4px;">Johan Martínez — Director Operativo</h3>
+            <p style="margin:0 0 8px;">Encargado de la logística, puntos de recolección y coordinación con beneficiarios y voluntarios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="manual-funciones" style="margin-top:18px;">
+      <h2>19. Manual de Funciones</h2>
+      <p class="muted">Descripción detallada de tareas, responsabilidades y competencias por cargo.</p>
+
+      <!-- Nicolás -->
+      <div class="func" id="func-nicolas">
+        <h4>Nicolás Rincón — Director General (CEO)</h4>
+        <ul>
+          <li>Definir y actualizar la estrategia institucional y objetivos anuales.</li>
+          <li>Representar a DonApp ante aliados, fundaciones y entidades públicas.</li>
+          <li>Aprobar alianzas, convenios y priorizar proyectos de impacto.</li>
+          <li>Supervisar cumplimiento de políticas y de indicadores de impacto social y ambiental.</li>
+          <li>Gestionar recursos y tomar decisiones financieras estratégicas en conjunto con el equipo.</li>
+        </ul>
+      </div>
+
+      <!-- César -->
+      <div class="func" id="func-cesar">
+        <h4>César Bolívar — Director Técnico</h4>
+        <ul>
+          <li>Planear, desarrollar y mantener la plataforma web y móvil (PMV y versiones posteriores).</li>
+          <li>Implementar medidas de seguridad, backups y control de acceso.</li>
+          <li>Crear y documentar procesos de trazabilidad y clasificación de dispositivos.</li>
+          <li>Coordinar con técnicos externos y gestionar incidencias técnicas.</li>
+          <li>Generar reportes técnicos y métricas relacionadas con el uso y la trazabilidad.</li>
+        </ul>
+      </div>
+
+      <!-- Luisa -->
+      <div class="func" id="func-luisa">
+        <h4>Luisa Méndez — Directora de Marketing y Comunicación</h4>
+        <ul>
+          <li>Diseñar e implementar la estrategia de comunicación digital y offline.</li>
+          <li>Gestión de redes sociales, producción de contenido y relaciones públicas.</li>
+          <li>Organizar ferias, talleres y jornadas de recolección con aliados.</li>
+          <li>Monitorear métricas de engagement, alcance y efectividad de campañas.</li>
+          <li>Generar informes de impacto comunicacional y coordinar campañas de sensibilización.</li>
+        </ul>
+      </div>
+
+      <!-- Johan -->
+      <div class="func" id="func-johan">
+        <h4>Johan Martínez — Director Operativo</h4>
+        <ul>
+          <li>Planificar y ejecutar la logística de recolección y distribución de dispositivos.</li>
+          <li>Administrar puntos físicos de recepción y el inventario de equipos.</li>
+          <li>Coordinar al equipo de voluntarios y pasantes en jornadas y actividades.</li>
+          <li>Garantizar protocolos de seguridad física, almacenamiento y transporte.</li>
+          <li>Documentar procesos operativos y apoyar en la mejora continua del flujo de trabajo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🧑‍💼 20. Requerimientos de Personal</h2>
+      <ul>
+        <li><strong>Director General (Nicolás Rincón):</strong> liderazgo estratégico y gestión institucional.</li>
+        <li><strong>Director Técnico (César Bolívar):</strong> desarrollo y mantenimiento de la plataforma.</li>
+        <li><strong>Directora de Marketing (Luisa Méndez):</strong> comunicación, redes y campañas.</li>
+        <li><strong>Director Operativo (Johan Martínez):</strong> logística y recolección de equipos.</li>
+      </ul>
+      <p>Adicionalmente, se requerirán:</p>
+      <ul>
+        <li>1 Técnico en reacondicionamiento electrónico.</li>
+        <li>2 Voluntarios o pasantes para apoyo logístico y educativo.</li>
+        <li>1 Diseñador o desarrollador web de soporte.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>🏢 21. Infraestructura</h2>
+      <ul>
+        <li>Oficina base o punto de acopio en Chía, Cundinamarca.</li>
+        <li>Espacio de almacenamiento y clasificación de equipos (20–30 m²).</li>
+        <li>Zona de reacondicionamiento técnico con estaciones de trabajo.</li>
+        <li>Conectividad a internet estable y energía eléctrica regulada.</li>
+        <li>Servidor web o hosting para la plataforma DonApp.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>🧱 22. Adecuaciones</h2>
+      <ul>
+        <li>Mesas de trabajo y estanterías para clasificación.</li>
+        <li>Sistemas de seguridad física y eléctrica.</li>
+        <li>Señalización y división de áreas (recepción, revisión, reparación, reciclaje).</li>
+        <li>Punto limpio para separación de residuos no reutilizables.</li>
+        <li>Espacio educativo para talleres sobre sostenibilidad.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>⚙️ 23. Maquinaria y Equipos</h2>
+      <ul>
+        <li>Computadores de escritorio y portátiles (mínimo 3 unidades).</li>
+        <li>Herramientas electrónicas: destornilladores, multímetro, cautín, pinzas.</li>
+        <li>Fuentes de poder, cargadores universales y discos duros externos.</li>
+        <li>Software de trazabilidad y base de datos para registrar donaciones.</li>
+        <li>Impresora, etiquetadora y cámara fotográfica para registro visual.</li>
+        <li>Servidor o hosting para la plataforma digital.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>📄 24. Ficha Técnica del Proyecto</h2>
+      <ul>
+        <li><strong>Nombre del proyecto:</strong> DonApp – Tecnología con propósito</li>
+        <li><strong>Tipo de proyecto:</strong> Plataforma digital de impacto social y ambiental</li>
+        <li><strong>Ubicación:</strong> Chía, Cundinamarca</li>
+        <li><strong>Duración inicial:</strong> 12 meses (fase piloto)</li>
+        <li><strong>Responsables:</strong> Nicolás Rincón, César Bolívar, Luisa Méndez, Johan Martínez</li>
+        <li><strong>Actividad CIIU:</strong> 9511 – Mantenimiento y reparación de computadores y equipo periférico / 3830 – Recuperación de materiales</li>
+        <li><strong>Objetivo:</strong> Promover la donación responsable de dispositivos electrónicos para fomentar la economía circular tecnológica.</li>
+        <li><strong>Población beneficiaria:</strong> Instituciones educativas, comunidades locales y ciudadanos de Chía.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>🔄 25. Flujograma del Producto o Servicio</h2>
+      <ol>
+        <li>Registro de donación (App/Web)</li>
+        <li>Recolección del dispositivo en punto físico o domicilio</li>
+        <li>Clasificación: funcional, semi-funcional, no funcional</li>
+        <li>Reacondicionamiento técnico (si aplica)</li>
+        <li>Redistribución a beneficiarios o instituciones educativas</li>
+        <li>Publicación de impacto (dispositivos gestionados, CO₂ ahorrado, etc.)</li>
+        <li>Reciclaje responsable de residuos no reutilizables</li>
+      </ol>
+    </section>
+  </div> 
 
   <footer>
-    <p>&copy; 2025 DonApp. Todos los derechos reservados.</p>
+    <p style="text-align:center; margin:28px 0 12px;">&copy; 2025 DonApp. Todos los derechos reservados.</p>
   </footer>
+
+</body>
+</html>
